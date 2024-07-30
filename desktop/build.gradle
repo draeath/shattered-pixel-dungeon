@@ -68,30 +68,30 @@ runtime {
 
     if (osName.contains('windows')) {
         targetPlatform("win") {
-            jdkHome = jdkDownload("https://corretto.aws/downloads/resources/21.0.4.7.1/amazon-corretto-21.0.4.7.1-windows-x64-jdk.zip")
-            javaHome = file("./build/jdks/win/jdk21.0.4_7").getAbsolutePath()
+            jdkHome = jdkDownload("https://github.com/adoptium/temurin21-binaries/releases/download/jdk-21.0.4%2B7/OpenJDK21U-jdk_x64_windows_hotspot_21.0.4_7.zip")
+            javaHome = file("./build/jdks/win/jdk-21.0.4+7").getAbsolutePath()
             jpackage {
-                jpackageHome = file("./build/jdks/win/jdk21.0.4_7")
+                jpackageHome = file("./build/jdks/win/jdk-21.0.4+7")
                 imageOptions = ["--icon", file("./src/main/assets/icons/windows.ico"),
                                 "--java-options", "-XX:+IgnoreUnrecognizedVMOptions"]
             }
         }
     } else if (osName.contains('linux')) {
         targetPlatform("linux") {
-            jdkHome = jdkDownload("https://corretto.aws/downloads/resources/21.0.4.7.1/amazon-corretto-21.0.4.7.1-linux-x64.tar.gz")
-            javaHome = file("./build/jdks/linux/amazon-corretto-21.0.4.7.1-linux-x64").getAbsolutePath()
+            jdkHome = jdkDownload("https://github.com/adoptium/temurin21-binaries/releases/download/jdk-21.0.4%2B7/OpenJDK21U-jdk_x64_linux_hotspot_21.0.4_7.tar.gz")
+            javaHome = file("./build/jdks/linux/jdk-21.0.4+7").getAbsolutePath()
             jpackage {
-                jpackageHome = file("./build/jdks/linux/amazon-corretto-21.0.4.7.1-linux-x64")
+                jpackageHome = file("./build/jdks/linux/jdk-21.0.4+7")
                 imageOptions = ["--icon", file("./src/main/assets/icons/icon_256.png"),
                                 "--java-options", "-XX:+IgnoreUnrecognizedVMOptions"]
             }
         }
     } else if (osName.contains('mac')) {
         targetPlatform("mac") {
-            jdkHome = jdkDownload("https://corretto.aws/downloads/resources/21.0.4.7.1/amazon-corretto-21.0.4.7.1-macosx-x64.tar.gz")
-            javaHome = file("./build/jdks/mac/amazon-corretto-21.jdk/Contents/Home/").getAbsolutePath()
+            jdkHome = jdkDownload("https://github.com/adoptium/temurin21-binaries/releases/download/jdk-21.0.4%2B7/OpenJDK21U-jdk_x64_mac_hotspot_21.0.4_7.tar.gz")
+            javaHome = file("./build/jdks/mac/jdk-21.0.4+7/Contents/Home/").getAbsolutePath()
             jpackage {
-                jpackageHome = file("./build/jdks/mac/amazon-corretto-21.jdk/Contents/Home/")
+                jpackageHome = file("./build/jdks/mac/jdk-21.0.4+7/Contents/Home/")
                 imageOptions = ["--icon", file("./src/main/assets/icons/mac.icns"),
                                 "--java-options", "-XstartOnFirstThread",
                                 "--java-options", "-XX:+IgnoreUnrecognizedVMOptions",
